@@ -17,7 +17,7 @@ def dice_game():
         computer_roll = random.randint(1, 6)
 
         print(f"{name} rolled: {user_roll}")
-        print("Computer rolled: {computer_roll}")
+        print(f"Computer rolled: {computer_roll}")
 
         user_score += user_roll
         computer_score += computer_roll

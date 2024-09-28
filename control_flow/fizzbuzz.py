@@ -1,5 +1,5 @@
 
-for number in range(1, 101): #numbers from 1 to 100.
+for number in range(1, 100): #numbers from 1 to 100.
     if number % 15 == 0:
         print("FizzBuzz")
     elif number % 3 == 0:
@@ -20,9 +20,7 @@ for number in range(1, 101): #numbers from 1 to 100.
         buzz_multiple (int): The multiple for which to print "Buzz".
     """
 
-    def fizzbuzz(start, end, fizz_multiple, buzz_multiple):
-    fizzbuzz(1, 100, 3, 5)
-    for number in range(start, end + 1):
+    for number in range(start, end):
         if number % (fizz_multiple * buzz_multiple) == 0:
             print("FizzBuzz")
         elif number % fizz_multiple == 0:
