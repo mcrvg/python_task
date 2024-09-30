@@ -14,6 +14,11 @@ with open('convert_dict.py', 'w') as python_file:
     convert_dict = data
 #This open a new file convert_dict, but is empty
 
+
+
+# Print the dictionary in the new file
+print(config_data)
+
 #Create version of validate_yaml_file.py: see another file:
 #GitHub\python_tasks\json_yaml>validate_yaml_file
 
