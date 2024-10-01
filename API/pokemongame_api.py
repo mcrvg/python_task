@@ -42,24 +42,30 @@ print('Ability: {}'.format(ability['name']))
 
 print(my_pokemon)
 
-#pokemon of cpu
-base_url = 'https://pokeapi.co/api/v2/pokemon/'
+#pokemon of cpu>Random select
+cpu_pokemon_id = random.randint(1, 151)
+url = f'https://pokeapi.co/api/v2/pokemon/{cpu_pokemon_id}/'
+response = requests.get(url)
+cpu_pokemon_data = json.loads(response.text)
 
-def get_pokemon_data(pokemon_name):
-    """Obtiene y devuelve los datos de un Pokémon dado."""
+# Extract height, weight, hp and attack for CPU
+# to get ability
+abilities = cpu_pokemon_data['abilities'][0]
+cpu_ability = abilities['ability']
 
-    url = f'{base_url}{pokemon_name}/'
-    response = requests.get(url)
-    return json.loads(response.text)
+# to format height and weight properly
+cpu_height = int(cpu_pokemon_data['height'])
+cpu_weight = int(cpu_pokemon_data['weight'])
 
-def get_random_pokemon():
-    """Obtiene un Pokémon aleatorio y devuelve su nombre."""
+cpu_height_formatted = height / 10
+cpu_weight_formatted = weight / 10
 
-    response = requests.get(f'{base_url}')
-    pokemon_list = json.loads(response.text)['results']
-    random_pokemon = random.choice(pokemon_list)
-    return random_pokemon['name']
+# Print the pokemon's data
+print('Name cpu pokemon: {}'.format(cpu_pokemon_data['name']))
+print('Weight: {}'.format(cpu_weight_formatted) + "(kgs)")
+print('Height: {}'.format(cpu_height_formatted) + "(m)")
+print('Ability: {}'.format(cpu_ability['name']))
 
-print (get_random_pokemon())
-
+# Print the initial battle message showing both Pokémon
+print(f"Your {pokemon_data['name']} VS my {cpu_pokemon_data['name']}! Start the fight!")
 
